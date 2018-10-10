@@ -14,15 +14,15 @@ class Rate(models.Model):
         return self.rater.username
 
 
-# class Project(models.Model):
-#     title = models.CharField(max_length = 60)
-#     homepage = models.ImageField(upload_to = 'images/')
-#     description = models.TextField()
-#     link = models.CharField(max_length = 60)
-#     rating = models.ForeignKey(Rate, on_delete=models.CASCADE,null=True,blank=True)
-#
-#     def __str__(self):
-#         return self.title
+class Project(models.Model):
+    title = models.CharField(max_length = 60)
+    homepage = models.ImageField(upload_to = 'images/')
+    description = models.TextField()
+    link = models.CharField(max_length = 60)
+    rating = models.ForeignKey(Rate, on_delete=models.CASCADE,null=True,blank=True)
+
+    def __str__(self):
+        return self.title
 #
 # class Profile(models.Model):
 #     name = models.ForeignKey(User,on_delete=models.CASCADE )
