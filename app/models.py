@@ -15,6 +15,7 @@ class Rate(models.Model):
 
 
 class Project(models.Model):
+    by = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length = 60)
     homepage = models.ImageField(upload_to = 'images/')
     description = models.TextField()
