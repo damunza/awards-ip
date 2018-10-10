@@ -23,13 +23,13 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-#
-# class Profile(models.Model):
-#     name = models.ForeignKey(User,on_delete=models.CASCADE )
-#     profile_pic = models.ImageField(upload_to = 'images/')
-#     bio = models. TextField()
-#     projects = models.ForeignKey(Project, on_delete=models.CASCADE)
-#     contact = models.TextField()
-#
-#     def __str__(self):
-#         return self.name.username
+
+class Profile(models.Model):
+    name = models.ForeignKey(User,on_delete=models.CASCADE )
+    profile_pic = models.ImageField(upload_to = 'images/')
+    bio = models. TextField()
+    projects = models.ForeignKey(Project, on_delete=models.CASCADE)
+    contact = models.TextField()
+
+    def __str__(self):
+        return self.name.username
