@@ -38,7 +38,7 @@ class Project(models.Model):
 
     @classmethod
     def search(cls,name):
-        project = Project.objects.filter(title = name)
+        project = cls.objects.filter(title__icontains = name)
         return project
 
 class Profile(models.Model):

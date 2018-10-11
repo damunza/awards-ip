@@ -43,8 +43,7 @@ def search(request):
         name = request.GET.get('project')
         project = Project.search(name)
 
-        title = name
-        return render(request, 'search.html', {'title':title, 'content':project})
+        return render(request, 'search.html', {'title':name, 'content':project})
 
     else:
         return render(request,'search.html')
