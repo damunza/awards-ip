@@ -36,6 +36,11 @@ class Project(models.Model):
         project = Project.objects.filter(by__username__icontains = identity)
         return project
 
+    @classmethod
+    def search(cls,name):
+        project = Project.objects.filter(title = name)
+        return project
+
 class Profile(models.Model):
     name = models.ForeignKey(User,on_delete=models.CASCADE )
     profile_pic = models.ImageField(upload_to = 'images/')
