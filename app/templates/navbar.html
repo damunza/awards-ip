@@ -21,6 +21,10 @@
         </li>
       </ul>
     </li>
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+    <input type="search" name="project" placeholder="Search" aria-label="Search" class="form-control container-fluid">
+    <button type="submit" name="button" class="btn-info">Search</button>
+  </form>
   </ul>
   {% else %}
   <li>
