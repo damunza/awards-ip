@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-xs navbar-light bg-light">
+  <a href="{% url 'home' %}" class="navbar-brand">DanseAwwards</a>
+  <div class="col-md-6 col-sm-6">
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav mr-auto d-flex justify-content-between">
+      <li class="nav-item">
+        <a href="{% url 'home'%}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">{{user.username}}</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="dropdown-toggle btn btn-default nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Account</a>
+        <ul class="dropdown-menu" role="menu">
+          <li></li>
+          <li>
+          <a href="/accounts/password/change">Change Password</a>
+        </li>
+        <li>
+          <a href="/logout">Logout</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  {% else %}
+  <li>
+    <a class='btn btn-default' href="/accounts/login">Login</a>
+  </li>
+
+  {% endif %}
+
+  </div>
+
+</nav>
