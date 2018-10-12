@@ -48,3 +48,13 @@ def search(request):
     else:
         return render(request,'search.html')
 
+@login_required(login_url='/accounts/login/')
+def project(request,id):
+    '''
+    function to return a single project
+    '''
+    project = Project.single_project(id=id)
+    return render(request,'project.html',{'project': project})
+
+
+
