@@ -24,6 +24,7 @@ class Rate(models.Model):
     usability = models.PositiveIntegerField(choices=Rating_choices, default=0,validators=[MaxValueValidator(10), MinValueValidator(0)])
     content = models.PositiveIntegerField(choices=Rating_choices, default=0,validators=[MaxValueValidator(10), MinValueValidator(0)])
     average = models.PositiveIntegerField(default=0,validators=[MaxValueValidator(10), MinValueValidator(0)])
+    review = models.TextField(blank = True, null=True)
 
     def __str__(self):
         return self.rater.username
