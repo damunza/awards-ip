@@ -80,12 +80,16 @@ def rate(request,id):
 
     return render(request,'rate.html',{'form':form,'project':item})
 
-class ModelsApi(APIView):
+class ProfApi(APIView):
     def get (self, request, format=None):
         profile = Profile.objects.all()
-        project = Project.objects.all()
         prof = Profileserializer(profile,many=True)
-        proj = Projectserializer(project,many=True)
 
-        return Response(prof.data,proj.data)
+        return Response(prof.data)
 
+class ProjApi(APIView):
+    def get(self, request, format=None):
+        project = Project.objects.all()
+        proj = Projectserializer(project, many=True)
+
+        return Response(proj.data)
