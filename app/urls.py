@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^search/',views.search,name='search'),
     url(r'^project/(\w+)',views.project,name='project'),
     url(r'^rate/(\d+)',views.rate,name='rate'),
+    url(r'^api/awards/$', views.ModelsApi.as_view())
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
