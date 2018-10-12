@@ -43,8 +43,9 @@ class Project(models.Model):
 
     @classmethod
     def single_project(cls,id):
-        project = Project.objects.filter(title__icontains =id)
+        project = Project.objects.filter(id =id)
         return project
+
 
 class Profile(models.Model):
     name = models.ForeignKey(User,on_delete=models.CASCADE )

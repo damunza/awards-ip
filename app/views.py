@@ -53,12 +53,13 @@ def project(request,id):
     '''
     function to return a single project
     '''
-    project = Project.single_project(id=id)
+    project = Project.search(name=id)
     return render(request,'project.html',{'project': project})
 
 @login_required(login_url='/accounts/login/')
 def rate(request,id):
     current_user = request.user
+    item = Project.single_project(id=id)
     project = get_object_or_404(Project, pk= id)
     if  request.method == 'POST':
         form = RatingForm(request.POST, request.FILES)
@@ -74,7 +75,7 @@ def rate(request,id):
     else:
         form = RatingForm()
 
-    return render(request,'rate.html',{'form':form})
+    return render(request,'rate.html',{'form':form,'project':item})
 
 
 
