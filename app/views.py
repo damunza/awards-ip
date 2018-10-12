@@ -53,7 +53,7 @@ def project(request,id):
     '''
     function to return a single project
     '''
-    project = Project.single_project(id=id)
+    project = Project.single_project(title=id)
     return render(request,'project.html',{'project': project})
 
 
