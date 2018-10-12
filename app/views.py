@@ -56,5 +56,26 @@ def project(request,id):
     project = Project.single_project(id=id)
     return render(request,'project.html',{'project': project})
 
+@login_required(login_url='/accounts/login/')
+def rate(request,id):
+    current_user = request.user
+    project = get_object_or_404(Project, pk= id)
+    if  request.method == 'POST':
+        form = RatingForm(request.POST, request.FILES)
+        if form.is_valid():
+            rate = form.save(commit=False)
+            rate.rater = current_user
+            rate.task = project
+            rate.average = (rate.content + rate.design + rate.usability)/3
+            rate.save()
+
+        return redirect('home')
+
+    else:
+        form = RatingForm()
+
+    return render(request,'rate.html',{'form':form})
+
+
 
 
