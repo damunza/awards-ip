@@ -10,12 +10,15 @@
         <div class="card-header">
           <h3 class="text-center"><b><i>{{con.title}}</i></b></h3>
         </div>
-        <a href="{{con.link}}">
+        <a href="/project/{{con.title}}">
           <img src="{{con.homepage.url}}" alt="homepage pic" class="card-img-top">
         </a>
         <div class="card-body">
           <p><b>Description:</b></p><br>
           <p>{{con.description}}</p>
+          <p>
+            <a href="{{con.link}}">Live Site</a>
+          </p>
         </div>
       </div>
     </div>

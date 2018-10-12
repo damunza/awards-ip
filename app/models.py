@@ -43,7 +43,7 @@ class Project(models.Model):
 
     @classmethod
     def single_project(cls,id):
-        project = Project.objects.filter(title=id)
+        project = Project.objects.filter(title__icontains =id)
         return project
 
 class Profile(models.Model):

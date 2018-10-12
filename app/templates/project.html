@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  {% for proj in project %}
+  <div style="margin-right:25%;" class="column">
+    <div class="card">
+      <img src="{{proj.homepage.url}}" alt="project homepage" class="card-img-top">
+      <div class="card-body">
+        <p>
+          <b>Title:</b> {{proj.title}}
+        </p>
+        <p>
+          <b>Description:</b> {{proj.description}}
+        </p>
+        <div class="row">
+        <div class="col-md-5 col-sm-5 col-lg-5"></div>
+        <div class="col-md-2 col-sm-2 col-lg-2">
+          <a href="#" class="btn btn-md btn-info">Rate Project</a>
+        </div>
+        <div class="col-md-5 col-sm-5 col-lg-5"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+  {% endfor%}
+</div>
+{% endblock %}
