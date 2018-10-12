@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .forms import *
+from .serializer import *
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -77,6 +80,12 @@ def rate(request,id):
 
     return render(request,'rate.html',{'form':form,'project':item})
 
+class ModelsApi(APIView):
+    def get (self, request, format=None):
+        profile = Profile.objects.all()
+        project = Project.objects.all()
+        prof = Profileserializer(profile,many=True)
+        proj = Projectserializer(project,many=True)
 
-
+        return Response(prof.data,proj.data)
 
