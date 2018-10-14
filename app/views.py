@@ -93,3 +93,20 @@ class ProjApi(APIView):
         proj = Projectserializer(project, many=True)
 
         return Response(proj.data)
+
+@login_required(login_url='/accounts/login/')
+def new_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.name = current_user
+            profile.save()
+        return redirect('home')
+
+    else:
+        form= NewProfileForm()
+
+    return render(request, 'new_profile.html', {'form':form})
+
