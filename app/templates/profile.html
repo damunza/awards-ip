@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="container">
+  {% if profile %}
   {% for prof in profile %}
   <div class="row">
     <div class="col-md-3 col-sm-3">
@@ -38,6 +39,15 @@
       </a>
     </div>
     {% endfor %}
+    {% else %}
+    <div class="row">
+      <div class="col-md-5 col-sm-5 col-lg-5"></div>
+      <div class="col-md-2 col-sm-2 col-lg-2">
+        <a href="{% url 'new_profile' %}"class="btn btn-md btn-info">Add Profile</a>
+      </div>
+      <div class="col-md-5 col-sm-5 col-lg-5"></div>
+    </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
