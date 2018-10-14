@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^rate/(\d+)',views.rate,name='rate'),
     url(r'^api/profile/$', views.ProfApi.as_view()),
     url(r'^api/project/$', views.ProjApi.as_view()),
+    url(r'^new/profile$',views.new_profile,name = 'new_profile'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
